@@ -1,12 +1,10 @@
-
-
-RSpec.feature "Entering players" do
-  scenario "Two players enter their names" do
-    visit "/"
-    fill_in "Player1", :with => "Michael"
-    fill_in "Player2", :with => "Lucy"
+feature "Entering players" do
+  scenario "two players enter their names" do
+    visit("/")
+    fill_in :player1, with: "Michael"
+    fill_in :player2, with: "Lucy"
     click_button "Submit"
 
-    expect(page).to have_text("Welcome Michael and Lucy.")
+    expect(page).to have_content("Welcome Michael and Lucy.")
   end
 end
