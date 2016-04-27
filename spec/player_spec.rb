@@ -11,12 +11,12 @@ describe Player do
     end
   end
 
-  describe "#attack" do
-    it "damages the player" do
-      expect(player_2).to receive(:take_damage)
-      player_1.attack(player_2)
-    end
-  end
+  # describe "#attack" do
+  #   it "damages the player" do
+  #     expect(player_2).to receive(:take_damage)
+  #     player_1.attack(player_2)
+  #   end
+  # end
 
   describe "#take_damage" do
     it "should reduce the players hp" do
