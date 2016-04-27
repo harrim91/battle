@@ -1,6 +1,6 @@
 <h1>Weep, <%= @player_1_name %> and <%= @player_2_name %>. The old gods are thirsty for your tears!</h1>
 
-<div><%= @player_2_name %> HP: <%= Battle::PLAYER_2_HP %></div>
+<div><%= @player_2_name %> HP: <%= @player_2_hp %></div>
 
 <div>
   <form action="/attack" method="post">
@@ -8,4 +8,7 @@
   </form>
 </div>
 
-<% if @attack %> <%= @player_1_name %> threw his own faeces at <%= @player_2_name %>!<% end %>
+<% if @attack %>
+  <p><%= @player_1_name %> threw his own faeces at <%= @player_2_name %>!</p>
+  <p>Right in the kisser! <%= @player_2_name %> now has <%= @player_2_hp %> HP remaining...</p>
+<% end %>
