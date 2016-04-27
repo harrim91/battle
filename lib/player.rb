@@ -14,10 +14,6 @@ class Player
     @name.dup
   end
 
-  # def attack player
-  #   player.take_damage
-  # end
-
   def take_damage
     @hp -= DEFAULT_ATTACK_DAMAGE
   end
