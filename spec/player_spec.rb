@@ -2,12 +2,19 @@ require 'player'
 
 describe Player do
 
-  let(:name){"Emmett"}
-  subject(:player){described_class.new(name)}
+  subject(:player_1){described_class.new("Emmett")}
+  subject(:player_2){described_class.new("Michael")}
 
   describe "#name" do
     it "should returns the player's name" do
-      expect(subject.name).to eq name
+      expect(player_1.name).to eq "Emmett"
+    end
+  end
+
+  describe "#attack" do
+    it "damages the player" do
+      expect(player_2).to receive(:take_damage)
+      player_1.attack(player_2)
     end
   end
 
