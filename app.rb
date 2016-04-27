@@ -1,6 +1,7 @@
 require 'sinatra/base'
 
 class Battle < Sinatra::Base
+  PLAYER_2_HP = 100
 
   enable :sessions
 
