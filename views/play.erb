@@ -2,3 +2,10 @@
 
 <div><%= @player_2_name %> HP: <%= Battle::PLAYER_2_HP %></div>
 
+<div>
+  <form action="/attack" method="post">
+    <button name="attack" value="throw_poop">Throw Poop</button>
+  </form>
+</div>
+
+<% if @attack %> <%= @player_1_name %> threw his own faeces at <%= @player_2_name %>!<% end %>
