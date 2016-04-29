@@ -16,18 +16,34 @@
     <div class="player1">
       <label for="player_1_name">PLAYER 1 NAME:</label>
       <input type="text" name="player_1_name"/><br>
-      <input type="radio" name="player_1_char" value="cloud" checked><img src="<%= @game.characters['cloud'] %>"/><br>
-      <input type="radio" name="player_1_char" value="lulu"><img src="<%= @game.characters['lulu'] %>"/><br>
-      <input type="radio" name="player_1_char" value="sephiroth" checked><img src="<%= @game.characters['sephiroth'] %>"/><br>
-      <input type="radio" name="player_1_char" value="vivi" checked><img src="<%= @game.characters['vivi'] %>"/>
+      <div class="character-select">
+        <input type="radio" name="player_1_char" value="cloud" checked><img src="<%= @game.characters['cloud'] %>"/><br>
+      </div>
+      <div class="character-select">
+        <input type="radio" name="player_1_char" value="lulu"><img src="<%= @game.characters['lulu'] %>"/><br>
+      </div>
+      <div class="character-select">
+        <input type="radio" name="player_1_char" value="sephiroth" checked><img src="<%= @game.characters['sephiroth'] %>"/><br>
+      </div>
+      <div class="character-select">
+        <input type="radio" name="player_1_char" value="vivi" checked><img src="<%= @game.characters['vivi'] %>"/>
+      </div>
     </div>
     <div class="player2">
       <label for="player_2_name">PLAYER 2 NAME:</label>
       <input type="text" name="player_2_name"/><br>
-      <input type="radio" name="player_2_char" value="cloud" checked><img src="<%= @game.characters['cloud'] %>" width="180" height "180"/><br>
-      <input type="radio" name="player_2_char" value="lulu"><img src="<%= @game.characters['lulu'] %>" width="180" height "180"/><br>
-      <input type="radio" name="player_2_char" value="sephiroth" checked><img src="<%= @game.characters['sephiroth'] %>" width="180" height "180"/><br>
-      <input type="radio" name="player_2_char" value="vivi"><img src="<%= @game.characters['vivi'] %>" width="180" height "180"/>
+      <div class="character-select">
+        <input type="radio" name="player_2_char" value="cloud" checked><img src="<%= @game.characters['cloud'] %>"/><br>
+      </div>
+      <div class="character-select">
+        <input type="radio" name="player_2_char" value="lulu"><img src="<%= @game.characters['lulu'] %>"/><br>
+      </div>
+      <div class="character-select">
+        <input type="radio" name="player_2_char" value="sephiroth" checked><img src="<%= @game.characters['sephiroth'] %>"/><br>
+      </div>
+      <div class="character-select">
+        <input type="radio" name="player_2_char" value="vivi"><img src="<%= @game.characters['vivi'] %>"/>
+      </div>
     </div>
     <div class="submit">
       <input type="submit" id="submit_button" value= "Submit"/>
