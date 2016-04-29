@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="main.css" type="text/css" />
-  <link rel="stylesheet" href="character_select.css" type="text/css" />  
+  <link rel="stylesheet" href="style/main.css" type="text/css" />
+  <link rel="stylesheet" href="style/character_select.css" type="text/css" />
 </head>
 
 
@@ -10,20 +10,33 @@
   <div style="text-align:center">
     <h1>FINAL FANTASY XV</h1>
     <h2>CHOOSE YOUR CHARACTER</h2>
-
-    <form action="/names" method = "post">
-      <label for="player_1_name">PLAYER 1 NAME:</label>
-      <input type="text" name="player_1_name"/>
-      <input type="radio" name="player_1_image" value="tyrion" checked><img src="http://vignette1.wikia.nocookie.net/gameofthrones/images/6/61/The_children_Tyrion_with_Bow_S4.png/revision/latest?cb=20140616190514" width="180" height "180"/>
-      <input type="radio" name="player_1_image" value="cersei"><img src="http://vignette4.wikia.nocookie.net/gameofthrones/images/c/c6/Cersei-lannister-lena-headey-helen-sloan.jpeg/revision/20120424220203" width="180" height "180"/>
-      <label for="player_2_name">PLAYER 2 NAME:</label>
-      <input type="text" name="player_2_name"/>
-      <input type="radio" name="player_2_image" value="tyrion" checked><img src="http://vignette1.wikia.nocookie.net/gameofthrones/images/6/61/The_children_Tyrion_with_Bow_S4.png/revision/latest?cb=20140616190514" width="180" height "180"/>
-      <input type="radio" name="player_2_image" value="cersei"><img src="http://vignette4.wikia.nocookie.net/gameofthrones/images/c/c6/Cersei-lannister-lena-headey-helen-sloan.jpeg/revision/20120424220203" width="180" height "180"/>
-      <input type="submit" value= "Submit"/>
-    </form>
   </div>
-  
+
+  <form action="/names" method = "post">
+    <div class="player1">
+      <label for="player_1_name">PLAYER 1 NAME:</label>
+      <input type="text" name="player_1_name"/><br>
+      <input type="radio" name="player_1_char" value="cloud" checked><img src="<%= @game.characters['cloud'] %>"/><br>
+      <input type="radio" name="player_1_char" value="lulu"><img src="<%= @game.characters['lulu'] %>"/><br>
+      <input type="radio" name="player_1_char" value="sephiroth" checked><img src="<%= @game.characters['sephiroth'] %>"/><br>
+      <input type="radio" name="player_1_char" value="vivi" checked><img src="<%= @game.characters['vivi'] %>"/>
+    </div>
+    <div class="player2">
+      <label for="player_2_name">PLAYER 2 NAME:</label>
+      <input type="text" name="player_2_name"/><br>
+      <input type="radio" name="player_2_char" value="cloud" checked><img src="<%= @game.characters['cloud'] %>" width="180" height "180"/><br>
+      <input type="radio" name="player_2_char" value="lulu"><img src="<%= @game.characters['lulu'] %>" width="180" height "180"/><br>
+      <input type="radio" name="player_2_char" value="sephiroth" checked><img src="<%= @game.characters['sephiroth'] %>" width="180" height "180"/><br>
+      <input type="radio" name="player_2_char" value="vivi"><img src="<%= @game.characters['vivi'] %>" width="180" height "180"/>
+    </div>
+    <div class="submit">
+      <input type="submit" id="submit_button" value= "Submit"/>
+    </div>
+  </form>
+  <div>
+      <iframe width="1" height="1" src="https://www.youtube.com/embed/CBeO7fxUPl4?rel=0&amp;controls=0&amp;showinfo=0&amp;&autoplay=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+
 </body>
 
 </html>

@@ -1,85 +1,54 @@
 require 'game'
 
 describe Game do
-  subject(:game) {described_class.new(player_1, player_2)}
-  let(:player_1) {double :player}
-  let(:player_2) {double :player}
+  subject(:game) {described_class.new}
+
+  before { game.add_player "player_1", "p1_img" ; game.add_player "player_2", "p2_img" }
+
+  describe '#add_player' do
+    it 'errors if more than two players are added' do
+      expect{game.add_player "player_3", "p3_img"}.to raise_error Game::TOO_MANY_PLAYERS
+    end
+  end
 
   describe '#attack' do
-
     it 'damages the player' do
-      expect(subject).to receive(:attack)
-      subject.attack(player_2)
+      expect(subject.defending_player).to receive(:receive_damage)
+      subject.attack(subject.defending_player)
     end
   end
 
   describe '#stab' do
-
     it 'damages the player' do
-      expect(subject).to receive(:stab)
-      subject.stab(player_2)
+      expect(subject.defending_player).to receive(:receive_damage)
+      subject.stab(subject.defending_player)
     end
   end
 
   describe '#pinch' do
-
     it 'damages the player' do
-      expect(subject).to receive(:pinch)
-      subject.pinch(player_2)
-    end
-  end
-
-  describe '#active_player' do
-    it 'defaults to player 1' do
-      expect(game.active_player).to eq player_1
-    end
-  end
-
-  describe '#defending_player' do
-    it 'defaults to player 2' do
-      expect(game.defending_player).to eq player_2
-    end
-  end
-
-  describe '#switch_turn' do
-    it 'switches the active player' do
-      game.switch_turn
-      expect(game.active_player).to eq player_2
-    end
-    it 'switches the defending player' do
-      game.switch_turn
-      expect(game.defending_player).to eq player_1
+      expect(subject.defending_player).to receive(:receive_damage)
+      subject.pinch(subject.defending_player)
     end
   end
 
   describe '#game_over?' do
-    before{allow(player_1).to receive(:alive?)}
-    before{allow(player_2).to receive(:alive?)}
-
-    it 'it checks if player 1 is alive' do
-      expect(player_1).to receive(:alive?)
-      subject.game_over?
-    end
-
-    it 'checks if player 2 is alive' do
-      expect(player_1).to receive(:alive?).and_return true
-      expect(player_2).to receive(:alive?)
-      subject.game_over?
-    end
+    before{allow(subject.defending_player).to receive(:alive?)}
+    before{allow(subject.active_player).to receive(:alive?)}
 
     it 'by default it returns false' do
-      allow(player_1).to receive(:alive?).and_return true
-      allow(player_2).to receive(:alive?).and_return true
+      allow(subject.defending_player).to receive(:alive?).and_return true
+      allow(subject.active_player).to receive(:alive?).and_return true
       expect(subject.game_over?).to eq false
     end
 
     it 'returns true if player 1 is dead' do
-      allow(player_1).to receive(:alive?).and_return false
+      allow(subject.active_player).to receive(:alive?).and_return false
       expect(subject.game_over?).to eq true
     end
 
     it 'returns true if player 2 is dead' do
-      allow(player_2).to receive(:alive?).and_return false
+      allow(subject.defending_player).to receive(:alive?).and_return false
       expect(subject.game_over?).to eq true
     end
 

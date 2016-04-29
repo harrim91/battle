@@ -1,17 +1,26 @@
 class Game
 
-  def self.create (player_1, player_2)
-    @game = Game.new player_1, player_2
+  TOO_MANY_PLAYERS = "TOO MANY PLAYERS"
+
+  def self.create
+    @game = Game.new
   end
 
   def self.last_instance
     @game
   end
 
-  def initialize(player_1, player_2)
-    @players = [player_1, player_2]
-    @active_player = player_1
-    @player_images = { "tyrion" => "http://vignette1.wikia.nocookie.net/gameofthrones/images/6/61/The_children_Tyrion_with_Bow_S4.png/revision/latest?cb=20140616190514", "cersei" => "http://vignette4.wikia.nocookie.net/gameofthrones/images/c/c6/Cersei-lannister-lena-headey-helen-sloan.jpeg/revision/20120424220203" }
+  def initialize
+    @players = []
+    @characters = { "cloud" => "/images/cloud_icon.png", "lulu" => "/images/lulu_icon.png", "sephiroth" => "/images/sephiroth_icon.png", "vivi" => "/images/vivi_icon.png" }
+  end
+
+  attr_reader :characters
+
+  def add_player player_name, character, player_class=Player
+    fail TOO_MANY_PLAYERS if @players.size == 2
+    @players << player_class.new(player_name, @characters[character])
+    @active_player = @players.first if @players.size == 1
   end
 
   def attack(player)

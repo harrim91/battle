@@ -5,24 +5,38 @@ body {
 	background-size: cover;
 }
 
-.main {
+img {
+  width: 120px;
+  height: 120px;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+	font-size: 50px;
+}
+
+form {
   width: 1750px;
-  height:500px;
   margin: auto;
   padding: 10px;
-  text-align: center
 }
 
-#title {
-  margin-top: 200px;
+.player1 {
+  width: 100px;
+  float: left;
+  margin-left: 200px
 }
 
-span {
-	font-size: 75px;
-	text-decoration: underline;
+.player2 {
+  width: 100px;
+  float: right;
+  margin-right: 200px
 }
 
-#start-button {
+#submit_button {
     background-color: #CCC;
     opacity: 1
     border: none;
@@ -32,4 +46,4 @@ span {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-} 
+}

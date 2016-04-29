@@ -1,0 +1,32 @@
+body {
+	background-image: url("../images/home_bk.png");
+	background-repeat: no-repeat;
+	background-color: black;
+	background-size: cover;
+}
+
+.main {
+  width: 1750px;
+  height:500px;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+#title {
+  margin-top: 200px;
+  font-size: 75px;
+  text-decoration: underline;
+}
+
+#start-button {
+    background-color: #CCC;
+    opacity: 1
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

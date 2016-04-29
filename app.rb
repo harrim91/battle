@@ -9,19 +9,23 @@ class Battle < Sinatra::Base
     erb :index
   end
 
+  post '/start-game' do
+    Game.create
+    redirect '/character-select'
+  end
+
+  before do
+    @game = Game.last_instance
+  end
+
   get '/character-select' do
     erb :character_select
   end
 
   post '/names' do
-    player_1 = Player.new(params[:player_1_name], params[:player_1_image])
-    player_2 = Player.new(params[:player_2_name], params[:player_2_image])
-    Game.create(player_1, player_2)
+    @game.add_player(params[:player_1_name], params[:player_1_char])
+    @game.add_player(params[:player_2_name], params[:player_2_char])
     redirect '/play'
-  end
-
-  before do
-    @game = Game.last_instance
   end
 
   post '/switch-turns' do

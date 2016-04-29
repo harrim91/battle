@@ -1,8 +1,6 @@
 require "player"
 
 describe Player do
-  let(:tyrion_url) {"http://vignette1.wikia.nocookie.net/gameofthrones/images/6/61/The_children_Tyrion_with_Bow_S4.png/revision/latest?cb=20140616190514"}
-  let(:cersei_url) {"http://vignette4.wikia.nocookie.net/gameofthrones/images/c/c6/Cersei-lannister-lena-headey-helen-sloan.jpeg/revision/20120424220203"}
   subject(:tyrion) { Player.new('Tyrion Lannister', "tyrion") }
   subject(:cersei) { Player.new('Cersie Lannister', "cersei") }
 
@@ -19,11 +17,8 @@ describe Player do
     end
 
     describe '#image' do
-      it 'returns the image URL 1' do
-        expect(tyrion.image).to eq tyrion_url
-      end
-      it 'returns the image URL 2' do
-        expect(cersei.image).to eq cersei_url
+      it 'returns the image' do
+        expect(tyrion.image).to eq "tyrion"
       end
     end
 
